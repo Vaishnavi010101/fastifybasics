@@ -1,9 +1,9 @@
 const fastify=require('fastify')({logger:true})
+//const items=require("./item")
 
 
-fastify.get('/items',(req,reply)=>{
-    reply.send({test:'hello'})
-})
+fastify.register(require('./Routes/items'))
+
 const start= async()=>{
     try{
         await fastify.listen({port:5000})
